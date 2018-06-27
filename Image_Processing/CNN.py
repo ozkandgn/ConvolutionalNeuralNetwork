@@ -10,16 +10,15 @@ class Processing(object):
 
     def main(self):
         self.Convolution()
-        #cv2.imshow(str(self.adress),self.img)
-        self.Pooling(3,2)
-        #cv2.imshow(str("2"+self.adress),self.img)
+        self.Pooling(3,3)
         self.Convolution()
-        self.Pooling(3,2)
+        self.Pooling(3,3)
         self.Convolution()
-        self.Pooling(3,2)
-        #self.Convolution()
-        #self.Pooling(3,2)
-        #print("H ",len(self.img)," + W ",len(self.img[0]))
+        self.Pooling(2,3)
+        self.Convolution()
+        self.Pooling(2,3)
+        #cv2.imshow(self.adress,self.img)
+        print("H ",len(self.img)," + W ",len(self.img[0]))
         return self.GiveForNN()
         
     def Size(self):
@@ -77,5 +76,5 @@ class Processing(object):
         img=self.img
         for i in range(len(img)):
             for j in range(len(img[i])):
-                newImg.append(float(img[i][j])/300)
+                newImg.append(float(img[i][j]))
         return list(newImg)
